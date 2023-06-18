@@ -1,32 +1,56 @@
 const express = require('express');
+const session = require('express-session');
+const path = require('path');
 const app = express();
-const port = 3000;
-const config = require('./config/config');
-const albums = require('./data/albums');
+const PORT = 3000;
+const config = require('./static/config/config');
 
 // set EJS as the view engine
 app.set('view engine', 'ejs');
 
-// Use middleware to parse the request body
+// use middlewares
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "static")));
 
 // Define a route for the homepage
 app.get('/', (req, res) => {
-    res.render('index');
+    res.sendFile(path.join(__dirname + '/views/login.html'));
 });
 
-// Check SecretCode
-app.post('/', (req, res) => {
-    const secretCode = config.secretCode;
-    const userCode = req.body.secretCode;
-
-    if (userCode === secretCode) {
-        console.log("Access Granted!");
-        res.redirect('/album');
+app.post('/auth', (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    
+    if (username && password) {
+        if (config.users[username] === btoa(password)) {
+            // Authenticate the user
+            req.session.loggedin = true;
+            req.session.username = username;
+            // Redirect to home page
+            res.redirect('/home');
+        } else {
+            res.send('Incorrect Username or Password!');
+        }
+        res.end();
     } else {
-        console.log("Access Denied!");
-        res.redirect('/'); // * Message : Confirm your secretCode
+        res.send('Please enter Username and Password');
+        res.end();
     }
+});
+
+app.get('/home', (req, res) => {
+    if (req.session.loggedin) {
+        res.send(`Welcome ${req.session.username}`);
+    } else {
+        res.send('Please login to view this page!');
+    }
+    res.end();
 });
 
 app.get('/album', (req, res) => {
