@@ -59,6 +59,6 @@ app.get('/album', (req, res) => {
 
 
 // Start the server
-app.listen(port, () => {
-    console.log(`SERVER LISTENING AT port ::: ${port}`);
+app.listen(PORT, () => {
+    console.log(`SERVER LISTENING AT port ::: ${PORT}`);
 });
