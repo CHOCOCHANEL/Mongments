@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, "static")));
 
 // Define a route for the homepage
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/views/login.html'));
+    res.sendFile(path.join(__dirname + '/views/login3.html'));
 });
 
 app.post('/auth', (req, res) => {
