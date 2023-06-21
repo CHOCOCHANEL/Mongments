@@ -5,9 +5,6 @@ const app = express();
 const PORT = 3000;
 const config = require('./static/config/config');
 
-// set EJS as the view engine
-app.set('view engine', 'ejs');
-
 // use middlewares
 app.use(session({
     secret: 'secret',
@@ -20,7 +17,7 @@ app.use(express.static(path.join(__dirname, "static")));
 
 // Define a route for the homepage
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/views/login3.html'));
+    res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
 app.post('/auth', (req, res) => {

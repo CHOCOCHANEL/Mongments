@@ -1,0 +1,66 @@
+오후 7:58 2023-06-21
+
+2. 메인페이지 Reference 찾기 (우리 앨범과 게시물)
+// 랜딩페이지
+ 1) https://html5up.net/paradigm-shift - 커플 연대기
+ 8) https://html5up.net/lens - 재밌는 모먼트 TOP10
+
+// 로그인
+ 9) https://html5up.net/eventually - 로그인 페이지
+ 
+// 프롤로그
+ 12) https://html5up.net/prologue - 프롤로그
+ 
+// 에필로그
+ 11) https://html5up.net/aerial - 에필로그
+ 
+// 포토북
+ 2) https://html5up.net/ethereal - 포토북
+ 3) https://html5up.net/story - 포토북
+ 4) https://html5up.net/editorial - 포토북
+ 6) https://html5up.net/phantom - 포토북
+ 13) https://html5up.net/parallelism - 포토북
+ 
+// 갤러리
+ 5) https://html5up.net/multiverse - 앨범상세 / 갤러리
+
+// 게시판 (다이어리)
+ 7) https://html5up.net/future-imperfect - 게시판 / 다이어리
+ 
+// 게시판 (편지지)
+ 10) https://html5up.net/highlights - 편지지
+ 14) https://html5up.net/striped - 주고받은 편지 모음집
+
+
+
+오후 8:23 2023-06-20
+1. github page로 배포하는 방법
+ -. README가 뜨는 경우. 최상위 폴더에 index.html이 없을 때
+ -. 블로그 게시물은 React 기준이다. (React로 넷플릭스 구현한 것을 봤을 때 공부해볼만 할 듯...)
+ -. 1년 전 Heroku 라는 무료 웹호스팅 사이트가 현재는 사용불가
+ -. GitHub Pages를 사용하여 서버사이드 렌더링이 가능하지 않을까.
+
+ -. 용훈님께 여쭤보니... express.js와 같이 WAS를 github.io에서 제공하는 방법은 없는 듯하다. (호스팅 해야할 듯... 최종 배포는)
+ 
+
+오후 3:21 2023-06-18
+
+로그인 페이지 꾸미기
+ Login Form 6 by Colorlib
+
+랜딩페이지 꾸미기 (메인화면)
+
+인스타그램 피드
+
+
+36분 // 로그인 페이지 SaSS 전처리기 활용법
+npx sass --watch /static/css/login3.scss /static/css/login3.css
+후 scss 파일 수정하기.
+
+50분 // 새로운 형태 서칭
+login2.html 
+// 배경 - 우리 사진과 문구로 꾸미기 ?
+
+17:37 로그인 페이지 꾸미기 완료...
+github page로 배포하는 방법
+https://chocochanel.github.io/Mongments/ 접속시 readme로 접속됨
